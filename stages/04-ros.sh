@@ -22,36 +22,25 @@ done
 
 echo "Installing ROS ${ROS_VERSION} packages"
 
-# Setup sources.list
-sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-
 # Setup keys
-curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -
+curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 
 # Update repos
 apt update -y
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
+apt update -y
 
 # Install ROS
-apt install -y ros-${ROS_VERSION}-desktop-full
+apt install -y ros-${ROS_VERSION}-desktop
 
 # Install other packages
 apt install -y \
-    python3-rosdep \
-    python3-rosinstall \
-    python3-rosinstall-generator \
-    python3-wstool \
-    python3-catkin-tools \
-    python3-osrf-pycommon
-
-# Rosdep
-rm -f "/etc/ros/rosdep/sources.list.d/20-default.list"
-rosdep init
-rosdep update
+    ros-dev-tools
 
 # Remove apt repos
 rm -rf /var/lib/apt/lists/*
 apt-get clean
 
 # Add to .bashrc
-echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+echo "source /opt/ros/galactic/setup.bash" >> ~/.bashrc
 source ~/.bashrc

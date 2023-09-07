@@ -85,6 +85,8 @@ LAST_STAGE="$BASE_IMAGE"
 
 if [[ $STAGE == "all" ]]; then
     BUILD_STAGES=$(list_stages)
+elif [[ $STAGE == "stretch" ]]; then
+    BUILD_STAGES=("01-base" "02-cuda" "03-opencv" "04-ros")
 else
     BUILD_STAGES=$STAGE
     PREVIOUS_STAGE=$(find_previous_stage $STAGE)

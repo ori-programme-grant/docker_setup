@@ -8,6 +8,12 @@ echo_warning()
     echo -e "\033[4;33mWARNING:\033[m $1"
 }
 
+echo_error()
+{
+    # Prints ERROR in red and the desired message
+    echo -e "\033[4;31mERROR:\033[m $1"
+}
+
 find_substring()
 {
     if grep -q "$1" <<< "$2"; then
@@ -55,7 +61,7 @@ check_target_exists()
 
 check_stage_exists()
 {
-    valid_stages="$(list_stages) all"
+    valid_stages="$(list_stages) all stretch"
     # We grep the list of stages to find a substring
     if [[ $(find_substring "$1" "$valid_stages") == "false" ]]; then
         echo_warning "Stage [$1] does not exist. Valid stages: $valid_stages"
