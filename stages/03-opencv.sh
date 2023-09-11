@@ -29,7 +29,7 @@ if [[ "$WITH_CUDA" == "true" ]]; then
     echo "Building OpenCV compatible with ROS $ROS_VERSION"
 
     # Choose OpenCV version that matches ROS
-    if [[ "$ROS_VERSION" == "noetic" ]]; then
+    if [ "$ROS_VERSION" == "noetic" ] || [ "$ROS_VERSION" == "galactic" ] ; then
         OPENCV_VERSION="4.2.0"
     elif [[ "$ROS_VERSION" == "melodic" ]]; then
         OPENCV_VERSION="3.4.16"
@@ -128,7 +128,7 @@ if [[ "$WITH_CUDA" == "true" ]]; then
         -D BUILD_opencv_hdf=OFF \
         -D BUILD_opencv_line_descriptor=OFF \
         -D BUILD_opencv_matlab=OFF \
-        -D BUILD_opencv_optflow=OFF \
+        -D BUILD_opencv_optflow=ON \
         -D BUILD_opencv_plot=OFF \
         -D BUILD_opencv_reg=OFF \
         -D BUILD_opencv_saliency=OFF \

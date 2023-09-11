@@ -13,7 +13,7 @@ dsbash()
         args=$@
         docker exec -it \
             --env="DISPLAY=$DISPLAY" \
-            ${DOCKER_SETUP_CONTAINER_NAME} /bin/bash -c "source /root/catkin_ws/devel/setup.bash && ${args}"
+            ${DOCKER_SETUP_CONTAINER_NAME} /bin/bash -c "source /root/ament_ws/install/setup.bash && ${args}"
     fi
 }
 
