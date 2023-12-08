@@ -42,5 +42,5 @@ rm -rf /var/lib/apt/lists/*
 apt-get clean
 
 # Add to .bashrc
-echo "source /opt/ros/galactic/setup.bash" >> ~/.bashrc
+echo "source /opt/ros/${ROS_VERSION}/setup.bash" >> ~/.bashrc
 source ~/.bashrc

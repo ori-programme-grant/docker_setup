@@ -11,10 +11,10 @@ USERNAME="ori"
 DOCKERFILE="Dockerfile"
 
 # Ubuntu version for the base system
-UBUNTU_VERSION="ubuntu20.04"
+UBUNTU_VERSION="ubuntu22.04"
 
 # ROS version to be installed
-ROS_VERSION="galactic"
+ROS_VERSION="humble"
 
 # CUDA stuff (not required for this target)
 WITH_CUDA="false"
@@ -24,7 +24,7 @@ JETPACK_VERSION=""
 
 # These variables go in the end since they rely on the previous ones
 # Base image for docker
-BASE_IMAGE="ubuntu:20.04"
+BASE_IMAGE="ubuntu:22.04"
 
 # Tag for the created image
 IMAGE_TAG="$USERNAME/devel-$TARGET_NAME:$UBUNTU_VERSION-$ROS_VERSION"

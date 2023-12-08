@@ -29,7 +29,7 @@ if [[ "$WITH_CUDA" == "true" ]]; then
     echo "Building OpenCV compatible with ROS $ROS_VERSION"
 
     # Choose OpenCV version that matches ROS
-    if [ "$ROS_VERSION" == "noetic" ] || [ "$ROS_VERSION" == "galactic" ] ; then
+    if [ "$ROS_VERSION" == "noetic" ] || [ "$ROS_VERSION" == "galactic" ] || [ "$ROS_VERSION" == "humble" ] ; then
         OPENCV_VERSION="4.2.0"
     elif [[ "$ROS_VERSION" == "melodic" ]]; then
         OPENCV_VERSION="3.4.16"

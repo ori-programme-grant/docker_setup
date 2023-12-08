@@ -11,10 +11,10 @@ USERNAME="ori"
 DOCKERFILE="Dockerfile"
 
 # Ubuntu version for the base system
-UBUNTU_VERSION="ubuntu20.04"
+UBUNTU_VERSION="ubuntu22.04"
 
 # ROS version to be installed
-ROS_VERSION="galactic"
+ROS_VERSION="humble"
 
 # CUDA stuff
 WITH_CUDA="true"

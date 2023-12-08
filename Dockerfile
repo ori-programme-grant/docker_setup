@@ -1,11 +1,11 @@
-ARG BASE_IMAGE=nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
+ARG BASE_IMAGE=nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
 FROM ${BASE_IMAGE}
 
 # Input script
 ARG SCRIPT=""
 # Other arguments used as env variables
-ARG UBUNTU_VERSION="ubuntu20.04"
-ARG ROS_VERSION="noetic"
+ARG UBUNTU_VERSION="ubuntu22.04"
+ARG ROS_VERSION="humble"
 ARG WITH_CUDA="false"
 ARG CUDA_VERSION=""
 ARG CUDA_ARCH_BIN=""
